@@ -1,9 +1,11 @@
 .PHONY: run build repl
 PWD = $(shell pwd)
 VERSION = 0.8.2
+USER = $(shell whoami)
 
 build:
-	docker build -t sleepyfox/purescript:$(VERSION) .
+	docker build --build-arg user=$(USER) \
+	  -t sleepyfox/purescript:$(VERSION) .
 
 run:
 	docker run -it \

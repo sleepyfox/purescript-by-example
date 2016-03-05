@@ -1,1 +1,6 @@
 .psci
+.config
+.cache
+.purescript
+bower_components
+.psci_modules
