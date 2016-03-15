@@ -15,4 +15,10 @@ run:
 repl:
 	docker run -it --rm \
 	-v $(PWD):/home/purescript \
-	sleepyfox/purescript:$(VERSION) psci
+	sleepyfox/purescript:$(VERSION) pulp psci
+
+test:
+	docker run -it --rm \
+	-v $(PWD):/home/purescript \
+	-w /home/purescript/chapter02 \
+	sleepyfox/purescript:$(VERSION) pulp test

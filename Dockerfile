@@ -11,5 +11,4 @@ RUN npm install -qg bower pulp purescript
 
 USER $user
 WORKDIR /home/purescript
-
 CMD ["bash"]
