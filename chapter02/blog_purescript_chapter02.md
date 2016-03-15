@@ -74,4 +74,28 @@ circleArea radius = pi * radius * radius
 For those used to Javascript - don't forget that you need to do `circleArea 2.0` rather than `circleArea 2` if you want to avoid a type-error because you can't multiply an Int by a Float without explicit conversion...
 
 ## Exercise 2
-The purescript-globals
+The purescript-globals package seems to include a rag-tag bag of JS functions that are presumably not covered by other libraries, e.g.
+* nan
+* isNaN
+* infinity
+* isFinite
+* readInt
+* readFloat
+* and some stuff to do with URIs...
+
+It's easy enough to get this into the REPL by using:
+
+    make run
+
+Make sure that you're in the chapter02 directory and then
+
+    bower install --save purescript-globals
+
+and then doing:
+
+    make repl
+    > import Global
+    > Global.nan
+    NaN
+
+Simples. If you fail to do the first step (`bower install...`) then you'll get a  

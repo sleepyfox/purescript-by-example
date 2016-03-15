@@ -1,7 +1,8 @@
-.PHONY: run build repl
+.PHONY: run build repl test
 PWD = $(shell pwd)
 VERSION = 0.8.2
 USER = $(shell whoami)
+CHAPTER = "chapter02"
 
 build:
 	docker build --build-arg user=$(USER) \
@@ -10,15 +11,17 @@ build:
 run:
 	docker run -it \
 	-v $(PWD):/home/purescript \
+	-w /home/purescript/$(CHAPTER) \	
 	sleepyfox/purescript:$(VERSION) bash
 
 repl:
 	docker run -it --rm \
 	-v $(PWD):/home/purescript \
+	-w /home/purescript/$(CHAPTER) \
 	sleepyfox/purescript:$(VERSION) pulp psci
 
 test:
 	docker run -it --rm \
 	-v $(PWD):/home/purescript \
-	-w /home/purescript/chapter02 \
+	-w /home/purescript/$(CHAPTER) \
 	sleepyfox/purescript:$(VERSION) pulp test
