@@ -1,8 +1,13 @@
-.PHONY: run build repl test
+.PHONY: run build repl test echo
 PWD = $(shell pwd)
 VERSION = 0.8.2
 USER = $(shell whoami)
-CHAPTER = "chapter02"
+ifndef CHAPTER
+  CHAPTER = "chapter02"
+endif
+
+echo:
+	echo $(CHAPTER)
 
 build:
 	docker build --build-arg user=$(USER) \
@@ -11,7 +16,7 @@ build:
 run:
 	docker run -it \
 	-v $(PWD):/home/purescript \
-	-w /home/purescript/$(CHAPTER) \	
+	-w /home/purescript/$(CHAPTER) \
 	sleepyfox/purescript:$(VERSION) bash
 
 repl:
