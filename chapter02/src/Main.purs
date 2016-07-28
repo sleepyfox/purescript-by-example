@@ -1,8 +1,8 @@
 module Main where
 
-import Prelude
+import Prelude 
 import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE, print)
+import Control.Monad.Eff.Console (CONSOLE, log, logShow)
 import Math (sqrt, pi)
 
 diagonal :: Number -> Number -> Number
@@ -13,5 +13,5 @@ circleArea radius = pi * radius * radius
 
 main :: forall e. Eff (console :: CONSOLE | e) Unit
 main = do
-  print "The diagonal of a triangle of sides 3 and 4 is:"
-  print (diagonal 3.0 4.0)
+  log "The diagonal of a triangle of sides 3 and 4 is:"
+  logShow (diagonal 3.0 4.0)

@@ -46,6 +46,11 @@ The book suggests adding new dependencies by using:
 The problem  with this is that pulp has deprecated dependency management and recommends that you leave this to bower - in my view a bad call q.v. leiningen. For those unfamiliar with bower, the correct incantation is:
 
     bower install --save purescript-math
+	
+You'll also need:
+
+	bower install --save purescript-console
+	bower install --save purescript-eff
 
 Personally I think it would be great if we could do the whole thing with npm, but heh :-/
 
@@ -72,6 +77,8 @@ circleArea radius = pi * radius * radius
 ```
 
 For those used to Javascript - don't forget that you need to do `circleArea 2.0` rather than `circleArea 2` if you want to avoid a type-error because you can't multiply an Int by a Float without explicit conversion...
+
+Remember that if you want to show something on the display, you can only use `log` for strings, as it has type `log :: forall eff. String -> Eff (console :: CONSOLE | eff) Unit` - for non-strings you'll have to use `logShow` which is also in the package `Control.Monad.Eff.Console` as described [here](https://pursuit.purescript.org/packages/purescript-console/1.0.0/docs/Control.Monad.Eff.Console). Get used to reading Pursuit for package definitions, it's a big help when things don't work out the way you expect, which is going to be a lot of the time to begin with... 
 
 ## Exercise 2
 The purescript-globals package seems to include a rag-tag bag of JS functions that are presumably not covered by other libraries, e.g.

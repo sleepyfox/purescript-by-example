@@ -1,9 +1,0 @@
-build:
-  box: docker
-  steps:
-    - script:
-      name: build the docker image
-      code: make build
-    - script:
-      name: run the tests
-      code: make test

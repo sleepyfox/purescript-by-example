@@ -1,4 +1,4 @@
-.PHONY: run build repl test echo
+.PHONY: echo clean build run repl test
 PWD = $(shell pwd)
 VERSION = 0.8.2
 USER = $(shell whoami)
@@ -9,6 +9,8 @@ endif
 echo:
 	echo $(CHAPTER)
 
+clean:
+	docker rmi sleepyfox/purescript
 build:
 	docker build --build-arg user=$(USER) \
 	  -t sleepyfox/purescript:$(VERSION) .
