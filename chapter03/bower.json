@@ -1,0 +1,26 @@
+{
+  "name": "purescript-by-example-chapter03",
+  "homepage": "https://github.com/sleepyfox/purescript-by-example",
+  "description": "Exercises from chapter 3 of the book 'Purescript by example'",
+  "main": "",
+  "keywords": [
+    "PureScript"
+  ],
+  "authors": [
+    "@sleepyfox"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "purescript-control": "^1.0.0",
+    "purescript-lists": "^1.0.1",
+    "purescript-maybe": "^1.0.0"
+  }
+}

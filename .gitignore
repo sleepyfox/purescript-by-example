@@ -6,3 +6,5 @@ bower_components
 .psci_modules
 .bash_history
 **/*.tix
+chapter*/output
+**/*~
