@@ -1,24 +1,26 @@
 {
-  "name": "chapter02",
-  "homepage": "https://github.com/sleepyfox/purescript-by-example",
-  "description": "",
-  "main": "",
-  "license": "MIT",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-    "purescript-math": "^2.0.0",
-    "purescript-eff": "^1.0.0",
-    "purescript-console": "^1.0.0",
-    "purescript-globals": "^1.1.0"
-  },
-  "devDependencies": {
-    "purescript-psci-support": "^1.0.0"
-  }
+    "name": "purescript-by-example-chapter02",
+    "homepage": "https://github.com/sleepyfox/purescript-by-example",
+    "description": "Exercises from chapter 2 of the book 'PureScript by Example",
+    "main": "",
+    "keywords": [ "PureScript" ],
+    "authors": [ "@sleepyfox" ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+	"**/.*",
+	"node_modules",
+	"bower_components",
+	"test",
+	"tests"
+    ],
+    "dependencies": {
+	"purescript-math": "^2.0.0",
+	"purescript-eff": "^1.0.0",
+	"purescript-console": "^1.0.0",
+	"purescript-globals": "^1.1.0"
+    },
+    "devDependencies": {
+	"purescript-psci-support": "^1.0.0"
+    }
 }
