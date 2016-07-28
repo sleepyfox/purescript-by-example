@@ -15,6 +15,10 @@ Remember to use pulp rather than psci directly, so that you get implicit managem
 
     pulp psci
 
+And don't forget that you need the package `purescript-psci-support` to be installed with:
+
+	bower install --save-dev purescript-psci-support
+
 If you get the dreaded error:
 
     > 1 + 1
@@ -37,6 +41,8 @@ You can check which libraries that you've got loaded in the repl by:
 You can see which packages are available to `import` by using:
 
     > :show loaded
+
+Although you can quit with `:quit` you can also quit by typing ^d (CTRL-d)
 
 ## Dependency management
 The book suggests adding new dependencies by using:
@@ -72,11 +78,22 @@ Ugh! Coming soon - how to manage your whole work-flow using `make` and ditch pul
 ## Exercise 1
 The code for circleArea is pretty trivial:
 ```purescript
+import Math (pi)
 circleArea :: Number -> Number
 circleArea radius = pi * radius * radius
 ```
 
-For those used to Javascript - don't forget that you need to do `circleArea 2.0` rather than `circleArea 2` if you want to avoid a type-error because you can't multiply an Int by a Float without explicit conversion...
+Then start up the REPL with:
+	
+	make repl
+
+The src/Main.purs gets loaded up into the REPL automagically, so we can just do:
+
+	> import Main
+	> circleArea 10.0
+	314.1592653589793
+	
+For those used to Javascript - don't forget that you need to do `circleArea 10.0` rather than `circleArea 10` if you want to avoid a type-error because you can't multiply an Int by a Float without explicit conversion...
 
 Remember that if you want to show something on the display, you can only use `log` for strings, as it has type `log :: forall eff. String -> Eff (console :: CONSOLE | eff) Unit` - for non-strings you'll have to use `logShow` which is also in the package `Control.Monad.Eff.Console` as described [here](https://pursuit.purescript.org/packages/purescript-console/1.0.0/docs/Control.Monad.Eff.Console). Get used to reading Pursuit for package definitions, it's a big help when things don't work out the way you expect, which is going to be a lot of the time to begin with... 
 
@@ -90,10 +107,6 @@ The purescript-globals package seems to include a rag-tag bag of JS functions th
 * readFloat
 * and some stuff to do with URIs...
 
-It's easy enough to get this into the REPL by using:
-
-    make run
-
 Make sure that you're in the chapter02 directory and then
 
     bower install --save purescript-globals
@@ -102,7 +115,13 @@ and then doing:
 
     make repl
     > import Global
-    > Global.nan
+    > nan
     NaN
 
-Simples. If you fail to do the first step (`bower install...`) then you'll get a  
+Simples. The purescript-globals package contains two modules: Global and Global.Unsafe, which contains the following four functions:
+* unsafeStringify
+* unsafeToPrecision
+* unsafeToFixed
+* unsafeToExponential
+
+These allow you to convert native JS things into strings (in an unsafe way). I'm not sure why these would be useful over a Type's Show mechanism, I'm guessing this may be a helper for foreign functions? Answers on a postcard please...

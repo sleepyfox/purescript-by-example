@@ -15,6 +15,10 @@
   "dependencies": {
     "purescript-math": "^2.0.0",
     "purescript-eff": "^1.0.0",
-    "purescript-console": "^1.0.0"
+    "purescript-console": "^1.0.0",
+    "purescript-globals": "^1.1.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^1.0.0"
   }
 }
